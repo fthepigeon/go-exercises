@@ -6,18 +6,12 @@ type ListNode struct {
 }
 
 func isPalindrome(head *ListNode) bool {
-	values := map[int]int{}
+	values := []int{}
 	node := head
-	index := 0
 
-	for {
-		values[index] = node.Val
-
-		if node.Next == nil {
-			break
-		}
+	for node != nil {
+		values = append(values, node.Val)
 		node = node.Next
-		index++
 	}
 
 	for i := 0; i < len(values)/2; i++ {
