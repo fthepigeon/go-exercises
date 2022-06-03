@@ -6,19 +6,12 @@ type ListNode struct {
 }
 
 func middleNode(head *ListNode) *ListNode {
-	nodes := map[int]*ListNode{}
+	nodes := []*ListNode{}
 	node := head
-	index := 0
 
-	for {
-		nodes[index] = node
-
-		if node.Next == nil {
-			break
-		}
-
+	for node != nil {
+		nodes = append(nodes, node)
 		node = node.Next
-		index++
 	}
-	return nodes[(index+1)/2]
+	return nodes[(len(nodes))/2]
 }
