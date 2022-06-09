@@ -1,6 +1,10 @@
 package main
 
 func lengthOfLongestSubstring(s string) int {
+	if len(s) == 0 || len(s) == 1 {
+		return len(s)
+	}
+
 	chars := map[rune]bool{}
 	maxLen, left := 0, 0
 
