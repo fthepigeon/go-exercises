@@ -1,20 +1,20 @@
 package main
 
-import (
-	"strconv"
-	"strings"
-)
-
 func isPalindrome(x int) bool {
 	if x < 0 || x%10 == 0 && x != 0 {
 		return false
 	}
-
-	var sb strings.Builder
-	s := strconv.Itoa(x)
-
-	for i := len(s); i > 0; i-- {
-		sb.WriteByte(s[i-1])
+	if x <= 10 {
+		return true
 	}
-	return sb.String() == s
+
+	rev := 0
+	n := x
+
+	for n > 0 {
+		rev = rev*10 + n%10
+		n /= 10
+	}
+
+	return rev == x
 }
